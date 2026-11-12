@@ -1,5 +1,15 @@
-const Logout = () => {
-    return <></>
-}
+import { useEffect } from "react"
+import { useNavigate } from "react-router-dom"
+import { useUserStore } from "../store/useUserStore"
 
-export default Logout
+export const Logout = () => {
+    const clearSession = useUserStore(state => state.clearSession)
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        clearSession()
+        navigate("/")
+    }, [])
+
+    return null
+}
