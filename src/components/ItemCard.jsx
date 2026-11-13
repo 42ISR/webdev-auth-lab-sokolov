@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom'
 
-const ItemCard = ({ id }) => {
+const ItemCard = ({ id, imageUrl, title, price, description, highestBid, username, bidsCount }) => {
     return (
         <Link to={`/item/${id}`}>
             <div className="item-card">
                 <img
                     src={imageUrl}
+                    alt={title}
                     className="item-image"
                 />
 
@@ -15,30 +16,32 @@ const ItemCard = ({ id }) => {
                     </span>
 
                     <h3 className="item-title">
-                        Название
+                        {title}
                     </h3>
 
                     <p className="item-description">
-                        Описание
+                        {description}
                     </p>
 
                     <div className="item-footer">
                         <div>
                             <div className="item-price">
-                                5000 Р
+                                {price} ₽
                             </div>
 
                             <div className="bid-info">
-                                5000 P
+                                {highestBid ?? 'Ставок нет'} 
+                                {highestBid != null && ' ₽'}
+
                                 <span className="bid-count">
-                                    2
+                                    {bidsCount ?? 0}
                                 </span>
                             </div>
                         </div>
 
                         <div className="item-meta">
                             <span className="item-seller">
-                                Продавец: Пользователь
+                                Продавец: {username ?? 'Пользователь'}
                             </span>
                         </div>
                     </div>

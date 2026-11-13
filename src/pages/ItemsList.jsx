@@ -58,7 +58,7 @@ const ItemsList = () => {
 
                 <div className="stat-item">
                     <span className="stat-value">
-                        {stats?.averageItemPrice ?? 0}₽
+                        {stats?.averageItemPrice ?? 0} ₽
                     </span>
                     <span className="stat-label">
                         Средняя цена
@@ -71,8 +71,19 @@ const ItemsList = () => {
                     <ItemCard
                         key={item.id}
                         id={item.id}
+                        imageUrl={item.imageUrl}
+                        title={item.title}
+                        price={item.price}
+                        description={item.description}
+                        highestBid={item.highestBid}
+                        username={item.username}
+                        bidsCount={item.bidsCount}
                     />
                 ))}
+
+                {items.length === 0 && (
+                    <p>Товаров пока нет.</p>
+                )}
             </div>
         </div>
     )

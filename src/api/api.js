@@ -34,6 +34,11 @@ const getItems = async () => {
     return res.data
 }
 
+const getItem = async (id) => {
+    const res = await apiInstance.get(`/items/${id}`)
+    return res.data
+}
+
 const getStats = async () => {
     const res = await apiInstance.get("/stats")
     return res.data
@@ -68,6 +73,7 @@ export const api = {
     registerUser,
     loginUser,
     getItems,
+    getItem,
     getStats,
     sendItems,
     deleteItems,
